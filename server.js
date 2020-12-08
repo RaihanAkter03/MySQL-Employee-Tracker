@@ -1,5 +1,7 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
+const chalk = require('chalk');
+const figlet = require('figlet');
 
 var connection = mysql.createConnection({
     // multipleStatements: true,
@@ -21,11 +23,9 @@ connection.connect(function (err) {
     if (err) throw err;
     console.log(chalk.greenBright.bold(`====================================================================================`));
     console.log(``);
-    console.log(chalk.greenBright.bold(figlet.textSync('Employee Tracker')));
+    console.log(chalk.redBright.bold(figlet.textSync('Employee Tracker')));
     console.log(``);
-    // console.log(`                                                          ` + chalk.greenBright.bold('Created By: Joseph DeWoody'));
-    console.log(``);
-    console.log(chalk.yellow.bold(`====================================================================================`));
+    console.log(chalk.greenBright.bold(`====================================================================================`));
     start();
 });
 
@@ -36,14 +36,19 @@ function start() {
             type: "list",
             message: "What would you like to do?",
             choices: [
-                "View all departments",
-                "View all roles",
-                "View all employees",
-                "Add a department",
-                "Add a role",
-                "Add an employee",
-                "Update employee role",
-                "Exit"
+                'View All Employees',
+                'View All Roles',
+                'View All Departments',
+                'View All Employees By Department',
+                'Update Employee Role',
+                'Update Employee Manager',
+                'Add Employee',
+                'Add Role',
+                'Add Department',
+                'Delete Employee',
+                'Delete Role',
+                'Delete Department',
+                'Quit'
             ]
         })
         .then(function (answer) {
@@ -301,7 +306,7 @@ function updateRole() {
                                 console.log(values);
                                 connection.query(query, values,
                                     function (err, res) {
-                                        console.log(`Updated ${name}'s role to the new ${role}.`)
+                                        console.log(`Updated ${name}'s new role is  ${role}.`)
                                     })
                                 viewEmployees();
                             })
