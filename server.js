@@ -58,16 +58,26 @@ function start() {
                 viewRoles();
             } else if (answer.action === 'View all employees') {
                 viewEmployees();
-            } else if (answer.action === 'Add a department') {
+            } else if (answer.action === 'View Employees By Department') {
+                viewEmployeesByDepertment();
+            }else if (answer.action === 'Add department') {
                 addDepartment();
-            } else if (answer.action === 'Add a role') {
+            } else if (answer.action === 'Add role') {
                 addRole();
             } else if (answer.action === 'Add an employee') {
                 addEmployee();
             } else if (answer.action === 'Update employee role') {
                 updateRole();
-            }
-            else if (answer.action === 'Exit') {
+            } else if (answer.action === 'Update Employee Manager') { 
+                updateEmployeeManager();
+            } else if (answer.action === 'Delete Employee') {
+                deleteEmployee();
+            } else if (answer.action === 'Delete Role') {
+                deleteRole();
+            } else if (answer.action === 'Delete Department') {
+                deleteDepertment();
+            }   
+            else if (answer.action === 'Quit') {
                 connection.end();
             }
         })
@@ -106,6 +116,13 @@ function viewEmployees() {
         start();
     });
 };
+
+function viewEmployeesByDepertment() { };
+function updateEmployeeManager() { };
+function deleteEmployee() { };
+function deleteRole(){ };
+function deleteDepertment() { };
+
 
 function addDepartment() {
     inquirer
