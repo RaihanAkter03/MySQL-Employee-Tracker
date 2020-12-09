@@ -42,5 +42,5 @@ So that I can organize and plan my business
 ##
 
 
-![Application](./trackerPNG.png)
+![Application](./trackerPNG.PNG)
 
